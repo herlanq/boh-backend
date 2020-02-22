@@ -1,0 +1,15 @@
+{
+  "name": "express-test",
+  "version": "1.0.0",
+  "description": "quick start for developing a backend API with node and express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason M. Fisher",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pg": "7.18.2"
+  }
+}
