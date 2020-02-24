@@ -1,12 +1,19 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
 const port = process.env.PORT || 3000;
-app.set('connectString', process.env.CONNECTSTRING);
+app.set('connectionString', process.env.CONNECTSTRING);
 
 // implement API routes
 const clientsAPI = require('./server/clients-api');

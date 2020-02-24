@@ -7,7 +7,7 @@ module.exports = {
 };
 
 go = (req, res, verb, qryStr, params) => {
-  const pgClient = new Client({ connectionString: req.app.get('connectionString') });
+  const pgClient = new Client({ connectionString: req.app.get('connectionString'), ssl: true });
   // const pgClient = new Client();
   let rtn = null;
   let status = verb === 'insert' ? 201 : 200;
@@ -46,5 +46,5 @@ go = (req, res, verb, qryStr, params) => {
     console.log(rtn);
   });
 
-  pgClient.end(() => res.status(status).send(rtn));
+  pgClient.end(() => res.status(status).json(rtn));
 }
