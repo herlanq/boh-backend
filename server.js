@@ -13,7 +13,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const port = process.env.PORT || 3000;
-app.set('connectionString', process.env.CONNECTSTRING);
+
+app.set('pool', require('./server/pg-connector'));
 
 // implement API routes
 const clientsAPI = require('./server/clients-api');

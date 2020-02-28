@@ -1,17 +1,25 @@
 const clients = {
   getAll: (req, res) => {
-    const pg = require('./pg-connector');
+    const pool = req.app.get('pool');
     const qryStr = `
       select *
       from public.client
       order by id asc limit 10
     `;
 
-    pg.select(req, res, qryStr);
+    pool.select(res, qryStr);
   },
 
   getById: (req, res) => {
-    return res.sendStatus(404);
+    const pool = req.app.get('pool');
+    const qryStr = `
+      select *
+      from public.client
+      where id = $1
+    `;
+    const params = new Array(req.params.id);
+
+    pool.selectOne(res, qryStr, params, 'client');
   }
 };
 
