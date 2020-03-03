@@ -14,6 +14,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const port = process.env.PORT || 3000;
 
+// implement a shared PostgreSQL pool for use throughout the app
 app.set('pool', require('./server/pg-connector'));
 
 // implement API routes

@@ -4,13 +4,14 @@ const isProduction = process.env.NODE_ENV === 'production';
 const connectionString = `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`;
 const pool = new Pool({
   connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
-  ssl: true
+  ssl: { rejectUnauthorized: false }
 });
 
 pool.connect(err => {
   if (err) {
-    // console.error(err);
-    return res.status(500).send({ message: 'Database connection error.' });
+    console.error(err);
+    // return res.status(500).send({ message: 'Database connection error.' });
+    pool.end();
   }
 });
 
