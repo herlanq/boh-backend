@@ -21,12 +21,24 @@ pool.on('error', err => {
 });
 
 module.exports = {
+  delete: (res, qryStr, params) => {
+    go(res, 'update', qryStr, params);
+  },
+
+  insert: (res, qryStr, params) => {
+    go(res, 'insert', qryStr, params);
+  },
+
   select: (res, qryStr, params) => {
     go(res, 'select', qryStr, params || []);
   },
 
   selectOne: (res, qryStr, params, recordType) => {
     go(res, 'selectOne', qryStr, params || [], recordType);
+  },
+
+  update: (res, qryStr, params) => {
+    go(res, 'update', qryStr, params);
   }
 };
 
@@ -35,6 +47,8 @@ go = (res, verb, qryStr, params, recordType) => {
   let status = verb === 'insert' ? 201 : 200;
 
   pool.query(qryStr, params, (err, rslt) => {
+    // note there are separate handlers for 'select' (return multiple rows) and 'selectOne' (return 1 row or 404)
+    // there are not separate handlers for delete, insert, and update, since they do not return data; they just run
     if (err) {
       // console.error(err);
       status = 500;
