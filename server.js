@@ -19,8 +19,10 @@ app.set('pool', require('./server/pg-connector'));
 
 // implement API routes
 const clientsAPI = require('./server/clients-api');
+const companiesAPI = require('./server/companies-api');
 
 app.use('/clients', clientsAPI);
+app.use('/companies', companiesAPI);
 
 // catch all other routes and return just a simple message
 app.all('*', (req, res) => res.send('Hi, this is not a real place'));
