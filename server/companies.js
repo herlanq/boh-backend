@@ -1,4 +1,4 @@
-const clients = {
+const companies = {
   getAll: (req, res) => {
     const pool = req.app.get('pool');
     const qryStr = `
@@ -41,4 +41,4 @@ const clients = {
   }
 };
 
-module.exports = clients;
+module.exports = companies;
