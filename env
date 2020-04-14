@@ -1,0 +1,7 @@
+CONNECTSTRING = 'postgres://eocfqjywqksaem:abebea4fc2f0d735559c3e6ab066120278a57c2dd317ea566c43bc80cee0c122@ec2-174-129-255-4.compute-1.amazonaws.com:5432/dcp8pmi8t8ci63'
+PGDATABASE = 'dcp8pmi8t8ci63'
+PGHOST = 'ec2-174-129-255-4.compute-1.amazonaws.com'
+PGPASSWORD = 'abebea4fc2f0d735559c3e6ab066120278a57c2dd317ea566c43bc80cee0c122'
+PGPORT = 5432
+PGURI = 'postgres://eocfqjywqksaem:abebea4fc2f0d735559c3e6ab066120278a57c2dd317ea566c43bc80cee0c122@ec2-174-129-255-4.compute-1.amazonaws.com:5432/dcp8pmi8t8ci63'
+PGUSER = 'eocfqjywqksaem'
