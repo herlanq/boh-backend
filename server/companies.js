@@ -4,7 +4,7 @@ const companies = {
     const qryStr = `
       select *
       from public.company
-      order by id asc limit 10
+      order by id asc
     `;
 
     pool.select(res, qryStr);

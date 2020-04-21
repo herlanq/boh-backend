@@ -4,7 +4,7 @@ const clients = {
     const qryStr = `
       select *
       from public.client
-      order by id asc limit 10
+      order by id asc
     `;
 
     pool.select(res, qryStr);
